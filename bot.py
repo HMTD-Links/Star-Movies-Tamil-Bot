@@ -8,7 +8,6 @@ logging.basicConfig(
 logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-import uvloop
 uvloop.install()
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
