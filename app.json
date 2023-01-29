@@ -6,7 +6,7 @@
   "website": "https://github.com/m4mallu/broadcast-bot",
   "repository": "https://github.com/m4mallu/broadcast-bot",
   "env": {
-        "APP_ID": {"description": "Get this value from https://my.telegram.org", "required": true},
+        "API_ID": {"description": "Get this value from https://my.telegram.org", "required": true},
         "API_HASH": {"description": "Get this value from https://my.telegram.org" , "required": true},
         "BOT_TOKEN": {"description": "Get Bot Token From @BotFather Bot", "required": true},
         "SUPPORT_CHAT": {"description": "Public group / channel username of the discussion chat (include - @)", "required": false},
