@@ -44,7 +44,6 @@ async def start(client, message):
     await message.reply(
         text=text,
         reply_markup=reply_markup,
-        mention=message.from_user.mention,
         disable_web_page_preview=True
     )
 
@@ -80,6 +79,7 @@ async def callback_query(client: Client, query: CallbackQuery):
         try:
             await query.edit_message_text(
                 Translation.SUPPORT,
+                disable_web_page_preview=True,
                 reply_markup=reply_markup
             )
         except MessageNotModified:
@@ -98,6 +98,7 @@ async def callback_query(client: Client, query: CallbackQuery):
         try:
             await query.edit_message_text(
                 Translation.ABOUT,
+                disable_web_page_preview=True,
                 reply_markup=reply_markup
             )
         except MessageNotModified:
@@ -122,6 +123,7 @@ async def callback_query(client: Client, query: CallbackQuery):
         try:
             await query.edit_message_text(
                 Translation.START,
+                disable_web_page_preview=True,
                 reply_markup=reply_markup
             )
         except MessageNotModified:
