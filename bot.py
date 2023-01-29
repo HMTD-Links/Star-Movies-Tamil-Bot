@@ -48,7 +48,6 @@ class Bot(Client):
         await super().stop()
         self.LOGGER(__name__).info("Bot Stopped. Bye.!")
 
-if __name__ == "__main__" :
 app = Bot()
 app.run()
 
