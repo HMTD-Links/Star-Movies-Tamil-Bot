@@ -1,7 +1,8 @@
 # --- Libraries Used:
 # --- For-Bot-Working --------- #
-pyrogram==1.4.8
+pyrogram~=2.0.59
 TgCrypto
+uvloop
 # --- For-Database ------------ #
 sqlalchemy~=1.3.23
 psycopg2-binary
