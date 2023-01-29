@@ -5,7 +5,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 from pyrogram import Client, filters
-from bot import Client
+from bot import bot
 from translation import Translation
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, CallbackQuery
 from pyrogram.errors import FloodWait
