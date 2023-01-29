@@ -1,5 +1,17 @@
 import os
 from pyrogram import Client
+import logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(lineno)d - %(module)s - %(levelname)s - %(message)s'
+)
+logging.getLogger().setLevel(logging.INFO)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+
+import uvloop
+uvloop.install()
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
+
 
 
 if bool(os.environ.get("ENV", False)):
@@ -17,6 +29,7 @@ class Bot(Client):
             bot_token=Config.BOT_TOKEN,
             api_id=Config.API_ID,
             api_hash=Config.API_HASH,
+            workers=20,
             plugins={
                 "root": "plugins"
             },
@@ -35,7 +48,7 @@ class Bot(Client):
         await super().stop()
         self.LOGGER(__name__).info("Bot Stopped. Bye.!")
 
-
+if __name__ == "__main__" :
 app = Bot()
 app.run()
 
