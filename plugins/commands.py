@@ -5,7 +5,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 from pyrogram import Client, filters
-from bot import channelforward
+from bot import Client
 from translation import Translation
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, CallbackQuery
 from pyrogram.errors import FloodWait
@@ -37,7 +37,7 @@ TELETIPS_MAIN_MENU_BUTTONS = [
             ]
         ]
 
-@channelforward.on_message(filters.command('start') & filters.private)
+@Client.on_message(filters.command('start') & filters.private)
 async def start(client, message):
     text = Translation.START
     reply_markup = InlineKeyboardMarkup(TELETIPS_MAIN_MENU_BUTTONS)
@@ -47,7 +47,7 @@ async def start(client, message):
         disable_web_page_preview=True
     )
 
-@channelforward.on_callback_query()
+@Client.on_callback_query()
 async def callback_query(client: Client, query: CallbackQuery):
     if query.data=="HELP_CALLBACK":
         TELETIPS_HELP_BUTTONS = [
@@ -133,7 +133,7 @@ async def callback_query(client: Client, query: CallbackQuery):
 ################################################################################################################################################################################################################################################
 # Help Command
 
-@channelforward.on_message(filters.command("help") & filters.private & filters.incoming)
+@Client.on_message(filters.command("help") & filters.private & filters.incoming)
 async def help(client, message):
     await message.reply(
         text=Translation.HELP,
@@ -144,7 +144,7 @@ async def help(client, message):
 ################################################################################################################################################################################################################################################
 # About Command
 
-@channelforward.on_message(filters.command("about") & filters.private & filters.incoming)
+@Client.on_message(filters.command("about") & filters.private & filters.incoming)
 async def about(client, message):
     await message.reply(
         text=Translation.ABOUT,
@@ -203,7 +203,7 @@ async def broadcast_text(bot, m: Message):
 ################################################################################################################################################################################################################################################
 #Alien Covenant (2017)
 
-@channelforward.on_message(filters.command("alien_covenant") & filters.private & filters.incoming)
+@Client.on_message(filters.command("alien_covenant") & filters.private & filters.incoming)
 async def alien_covenant(client, message):
     await message.reply_photo(
         caption = Translation.ALIEN_COVENANT.format(
